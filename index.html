@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#fff7e0">
+<meta name="apple-mobile-web-app-title" content="Solsikken">
+<title>Solsikken 🌻</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌻</text></svg>">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<style>
+  :root{
+    --gold:#f4b400; --gold-deep:#e08e00; --seed:#5a3a1a; --seed2:#7a4f24;
+    --stem:#4e9a3a; --leaf:#5fb14a;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+  html,body{margin:0;padding:0;min-height:100%;}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    color:#3a3326;
+    background:linear-gradient(160deg,#fff7e0,#ffe9c7,#ffe3ec,#e7f4ff,#fff7e0);
+    background-size:400% 400%;
+    animation:sky 30s ease infinite;
+    min-height:100vh;
+    min-height:100dvh; /* iOS: avoids the address-bar gap */
+    display:flex;flex-direction:column;align-items:center;
+    padding:calc(28px + env(safe-area-inset-top)) calc(18px + env(safe-area-inset-right)) calc(60px + env(safe-area-inset-bottom)) calc(18px + env(safe-area-inset-left));
+    text-align:center;
+    overflow-x:hidden;
+    -webkit-overflow-scrolling:touch;
+    -webkit-font-smoothing:antialiased;
+    touch-action:manipulation; /* removes 300ms tap delay & double-tap zoom */
+  }
+  @keyframes sky{0%{background-position:0% 0%}50%{background-position:100% 100%}100%{background-position:0% 0%}}
+
+  header{max-width:560px;}
+  h1{font-size:1.5rem;font-weight:700;margin:0 0 4px;letter-spacing:.3px;}
+  .greet{font-size:1.05rem;color:#8a6d3b;margin:0 0 2px;font-weight:600;}
+  .sub{font-size:.92rem;color:#9a8a66;margin:0 0 6px;line-height:1.45;}
+
+  .stage{position:relative;width:300px;max-width:88vw;margin:6px auto 0;}
+  svg{width:100%;height:auto;display:block;overflow:visible;}
+
+  /* the tappable plant */
+  #flower{cursor:pointer;transform-origin:150px 360px;transition:transform .25s ease;}
+  #flower:hover{transform:rotate(-1.2deg) scale(1.015);}
+  #flower.locked{cursor:default;}
+  #flower.locked:hover{transform:none;}
+  #flower:active{transform:rotate(0.5deg) scale(.99);}
+  .head{transform-origin:150px 112px;animation:sway 6s ease-in-out infinite;}
+  @keyframes sway{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(2deg)}}
+
+  .hint{
+    margin:10px auto 0;min-height:1.4em;font-size:.95rem;font-weight:600;
+    color:#cc8a1a;transition:opacity .4s;
+  }
+  .hint.soft{color:#a08bb5;}
+
+  /* falling leaf animation overlay */
+  .falling{
+    position:absolute;left:50%;top:64%;width:54px;height:54px;
+    pointer-events:none;z-index:5;
+  }
+  @keyframes fall{
+    0%{transform:translate(-50%,0) rotate(0deg) scale(.7);opacity:0;}
+    12%{opacity:1;}
+    100%{transform:translate(var(--dx),320px) rotate(var(--rot)) scale(1);opacity:0;}
+  }
+
+  /* bouquet */
+  .bouquet-wrap{margin-top:22px;width:100%;max-width:760px;}
+  .count{font-size:.82rem;color:#a89876;letter-spacing:.4px;text-transform:uppercase;margin-bottom:12px;}
+  .translate-btn{
+    appearance:none;-webkit-appearance:none;
+    border:1.5px solid #e3c98a;background:rgba(255,255,255,.6);
+    color:#9a7a30;font:inherit;font-size:.82rem;font-weight:600;
+    padding:9px 18px;border-radius:999px;cursor:pointer;
+    margin-bottom:16px;transition:background .2s,transform .1s;
+    min-height:44px; /* iOS minimum tap target */
+    touch-action:manipulation;
+  }
+  .translate-btn:hover{background:rgba(255,255,255,.9);}
+  .translate-btn:active{transform:scale(.96);}
+  .bouquet{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;}
+  .leaf{
+    position:relative;
+    width:200px;min-height:96px;
+    padding:16px 18px 14px;
+    border-radius:0 100% 0 100%/100% 0 100% 0;
+    display:flex;flex-direction:column;justify-content:center;
+    box-shadow:0 6px 18px rgba(120,90,30,.14);
+    animation:pop .55s cubic-bezier(.2,1.3,.5,1) both;
+    overflow:hidden;
+  }
+  .leaf::before{ /* central vein */
+    content:"";position:absolute;left:14%;top:14%;width:72%;height:72%;
+    background:linear-gradient(135deg,transparent 47%,rgba(255,255,255,.55) 49%,transparent 51%);
+    pointer-events:none;
+  }
+  @keyframes pop{0%{transform:scale(.4) rotate(-8deg);opacity:0}100%{transform:scale(1) rotate(0);opacity:1}}
+  .leaf .msg{font-size:.95rem;line-height:1.4;font-weight:600;position:relative;z-index:1;}
+  .leaf .date{font-size:.7rem;opacity:.7;margin-top:8px;position:relative;z-index:1;font-weight:500;}
+
+  footer{margin-top:38px;font-size:.74rem;color:#bbac8b;}
+</style>
+</head>
+<body>
+  <header>
+    <h1>Solsikken 🌻</h1>
+    <p class="greet" id="greet"></p>
+    <p class="sub">Tapp på solsikka og plukk ett blad. Ett om dagen, kom tilbake i morgen for et nytt.</p>
+  </header>
+
+  <div class="stage">
+    <svg viewBox="0 0 300 380" id="art" aria-label="En solsikke">
+      <defs>
+        <radialGradient id="seedGrad" cx="50%" cy="42%" r="60%">
+          <stop offset="0%" stop-color="#7a4f24"/>
+          <stop offset="100%" stop-color="#3f2912"/>
+        </radialGradient>
+        <linearGradient id="petalGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#ffd23f"/>
+          <stop offset="100%" stop-color="#f3a000"/>
+        </linearGradient>
+        <linearGradient id="stemGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#6fc24f"/>
+          <stop offset="100%" stop-color="#3f8a2e"/>
+        </linearGradient>
+      </defs>
+
+      <g id="flower">
+        <!-- stem -->
+        <path d="M150 150 Q145 260 150 380" stroke="url(#stemGrad)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <!-- leaves on stem -->
+        <path id="stemLeafL" d="M150 250 Q95 232 80 270 Q120 286 150 258 Z" fill="#56a93f"/>
+        <path id="stemLeafR" d="M150 300 Q205 282 222 322 Q180 336 150 308 Z" fill="#62b94a"/>
+        <!-- flower head -->
+        <g class="head">
+          <g id="petals"></g>
+          <circle cx="150" cy="112" r="44" fill="url(#seedGrad)"/>
+          <g id="seeds"></g>
+        </g>
+      </g>
+    </svg>
+    <!-- falling leaves get injected here -->
+  </div>
+
+  <p class="hint" id="hint">Tapp solsikka 🌻</p>
+
+  <div class="bouquet-wrap">
+    <div class="count" id="count"></div>
+    <button class="translate-btn" id="translateBtn" hidden>Vis på engelsk</button>
+    <div class="bouquet" id="bouquet"></div>
+  </div>
+
+  <footer>Laget med varme 🌻</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  // --- Optimistic Norwegian lines about friendship & colour ---
+  var MESSAGES = [
+    "Noen vennskap er fargen himmelen får rett før den overrasker deg.",
+    "Du gjør verden litt mer gul, helt uten å prøve.",
+    "En venn er noen som maler dagen din i farger du ikke visste fantes.",
+    "Selv grå dager har en kant av gull når man deler dem med noen.",
+    "Vennskap vokser som solsikker: sakte, mot lyset, og høyere enn du tror.",
+    "I dag finnes det en farge der ute som bare venter på å gjøre deg glad.",
+    "Du er noens favorittfarge i en verden full av valg.",
+    "Latter mellom venner er den varmeste gulfargen som finnes.",
+    "Selv den minste hilsen kan farge en hel dag.",
+    "Gode venner er som regnbuer, de dukker opp etter regnet.",
+    "Du trenger ikke være sola for noen; iblant holder det å være den lille gule blomsten som snur seg mot den.",
+    "Det finnes mennesker som gjør hjertet ditt litt mer fargerikt bare ved å være til.",
+    "Vennskap er å dele paletten sin med hverandre.",
+    "I morgen har allerede en farge den gleder seg til å vise deg.",
+    "Du sprer mer lys enn du aner.",
+    "Noen ganger er det de små, gule øyeblikkene som bærer hele dagen.",
+    "En ekte venn ser fargene dine, også på dagene du føler deg grå.",
+    "Det vakreste med farger er at de blir sterkere side om side, akkurat som venner.",
+    "Du er verdt en hel eng av solsikker.",
+    "Hold ut: de fineste fargene kommer ofte sist på himmelen.",
+    "Vennskap trenger ikke mange ord; av og til holder en gul blomst.",
+    "Hver dag er et tomt lerret, og du har alltid hatt godt fargevalg.",
+    "Den som tenker på deg i dag, gjør verden litt rundere og varmere.",
+    "Selv om det regner, finnes fargene fortsatt, de venter bare på lyset.",
+    "Du er en av grunnene til at noen smiler i dag.",
+    "Vennskap er solskinn man kan ta med seg innendørs.",
+    "Noen blomster snur seg mot sola; du får andre til å gjøre det samme.",
+    "La dagen få farge på deg: du fortjener alle de fine nyansene.",
+    "De beste vennene maler litt gult inn i de grå stundene dine.",
+    "Det finnes mer godhet rundt deg enn du rekker å se på én dag.",
+    "Et vennskap er en farge som ikke falmer.",
+    "Du tar med deg lys inn i rom uten å vite det selv.",
+    "Slik solsikker alltid finner lyset, finner gode mennesker alltid hverandre.",
+    "I dag er en god dag for å være litt snill mot deg selv.",
+    "Den minste vennligheten kan farge en hel uke.",
+    "Du er noens trygge, gule sted.",
+    "Selv på vindfulle dager står solsikkene sammen.",
+    "Verden er litt mer fargerik fordi du er i den.",
+    "Noen tenker varmt på deg akkurat nå.",
+    "Pass på lyset ditt: det er fint, og noen styrer etter det."
+  ];
+
+  // English translations, index-aligned with MESSAGES
+  var MESSAGES_EN = [
+    "Some friendships are the colour the sky turns right before it surprises you.",
+    "You make the world a little more yellow, without even trying.",
+    "A friend is someone who paints your day in colours you didn't know existed.",
+    "Even grey days have an edge of gold when you share them with someone.",
+    "Friendship grows like sunflowers: slowly, toward the light, and taller than you think.",
+    "Today there's a colour out there just waiting to make you happy.",
+    "You are someone's favourite colour in a world full of choices.",
+    "Laughter between friends is the warmest shade of yellow there is.",
+    "Even the smallest hello can colour a whole day.",
+    "Good friends are like rainbows, they appear after the rain.",
+    "You don't have to be the sun for anyone; sometimes it's enough to be the little yellow flower that turns toward it.",
+    "There are people who make your heart a little more colourful simply by existing.",
+    "Friendship is sharing your palette with one another.",
+    "Tomorrow already has a colour it's looking forward to showing you.",
+    "You spread more light than you realise.",
+    "Sometimes it's the small, yellow moments that carry the whole day.",
+    "A true friend sees your colours, even on the days you feel grey.",
+    "The loveliest thing about colours is that they grow stronger side by side, just like friends.",
+    "You are worth a whole meadow of sunflowers.",
+    "Hang in there: the finest colours often come last in the sky.",
+    "Friendship doesn't need many words; sometimes a yellow flower is enough.",
+    "Every day is a blank canvas, and you've always had a good eye for colour.",
+    "Whoever is thinking of you today makes the world a little rounder and warmer.",
+    "Even when it rains, the colours are still there, they're just waiting for the light.",
+    "You're one of the reasons someone is smiling today.",
+    "Friendship is sunshine you can take indoors with you.",
+    "Some flowers turn toward the sun; you make others do the same.",
+    "Let the day put some colour on you: you deserve all the lovely shades.",
+    "The best friends paint a little yellow into your grey moments.",
+    "There's more kindness around you than you can take in within a single day.",
+    "A friendship is a colour that doesn't fade.",
+    "You bring light into rooms without even knowing it.",
+    "Just as sunflowers always find the light, good people always find each other.",
+    "Today is a good day to be a little kind to yourself.",
+    "The smallest kindness can colour a whole week.",
+    "You are someone's safe, yellow place.",
+    "Even on windy days, the sunflowers stand together.",
+    "The world is a little more colourful because you're in it.",
+    "Someone is thinking warmly of you right now.",
+    "Take care of your light: it's lovely, and someone steers by it."
+  ];
+
+  // Norwegian -> English lookup (by index)
+  var NO2EN = {};
+  for(var _i=0;_i<MESSAGES.length;_i++){ NO2EN[MESSAGES[_i]] = MESSAGES_EN[_i]; }
+
+  // Cheerful hues for the leaves (HSL hue values)
+  var HUES = [45, 18, 200, 280, 150, 332, 28, 175, 95, 260, 8, 215];
+
+  var STORE_KEY = "solsikke_v1";
+  var MONTHS = ["januar","februar","mars","april","mai","juni","juli","august","september","oktober","november","desember"];
+
+  // --- helpers ---
+  function todayKey(){
+    var d = new Date();
+    return d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate();
+  }
+  function prettyDate(){
+    var d = new Date();
+    return d.getDate()+". "+MONTHS[d.getMonth()];
+  }
+  function load(){
+    try{
+      var raw = localStorage.getItem(STORE_KEY);
+      if(raw){ return JSON.parse(raw); }
+    }catch(e){}
+    return {lastPull:null, collected:[], seen:[]};
+  }
+  function save(state){
+    try{ localStorage.setItem(STORE_KEY, JSON.stringify(state)); }catch(e){}
+  }
+  function param(name){
+    try{ return new URLSearchParams(window.location.search).get(name); }catch(e){ return null; }
+  }
+
+  var state = load();
+
+  // --- greeting (optional ?til=Navn) ---
+  var til = param("til");
+  if(til){
+    til = til.replace(/[<>]/g,"").slice(0,40);
+    document.getElementById("greet").textContent = "Til " + til + " 🌻";
+  }
+
+  // --- build petals & seeds ---
+  function buildFlower(){
+    var petals = document.getElementById("petals");
+    var cx=150, cy=112, n=16;
+    for(var i=0;i<n;i++){
+      var ang = (360/n)*i;
+      var p = document.createElementNS("http://www.w3.org/2000/svg","ellipse");
+      p.setAttribute("cx", cx);
+      p.setAttribute("cy", cy-58);
+      p.setAttribute("rx", 11);
+      p.setAttribute("ry", 30);
+      p.setAttribute("fill","url(#petalGrad)");
+      p.setAttribute("transform","rotate("+ang+" "+cx+" "+cy+")");
+      petals.appendChild(p);
+    }
+    var seeds = document.getElementById("seeds");
+    for(var r=8;r<=36;r+=8){
+      var count = Math.round(r*0.9);
+      for(var j=0;j<count;j++){
+        var a = (Math.PI*2/count)*j + r;
+        var sx = cx + Math.cos(a)*r;
+        var sy = cy + Math.sin(a)*r;
+        var s = document.createElementNS("http://www.w3.org/2000/svg","circle");
+        s.setAttribute("cx", sx.toFixed(1));
+        s.setAttribute("cy", sy.toFixed(1));
+        s.setAttribute("r", 1.7);
+        s.setAttribute("fill", (j%2? "#7a4f24":"#90602e"));
+        s.setAttribute("opacity","0.85");
+        seeds.appendChild(s);
+      }
+    }
+  }
+  buildFlower();
+
+  // --- pick a fresh message ---
+  function pickMessage(){
+    if(state.seen.length >= MESSAGES.length){ state.seen = []; }
+    var available = [];
+    for(var i=0;i<MESSAGES.length;i++){ if(state.seen.indexOf(i)===-1){ available.push(i); } }
+    var idx = available[Math.floor(Math.random()*available.length)];
+    state.seen.push(idx);
+    return idx;
+  }
+
+  // --- render the bouquet ---
+  var bouquetEl = document.getElementById("bouquet");
+  var countEl = document.getElementById("count");
+  var translateBtn = document.getElementById("translateBtn");
+  var showEnglish = false;
+
+  // text for a leaf in the currently selected language
+  function textFor(item){
+    if(showEnglish){ return NO2EN[item.msg] || item.msg; }
+    return item.msg;
+  }
+
+  function updateCount(){
+    var n = state.collected.length;
+    if(n === 0){ countEl.textContent = ""; return; }
+    countEl.textContent = showEnglish
+      ? (n + (n === 1 ? " leaf in your bouquet" : " leaves in your bouquet"))
+      : (n + " blad i buketten");
+  }
+
+  function leafColors(hue){
+    return {
+      bg: "hsl("+hue+",78%,90%)",
+      bg2:"hsl("+hue+",70%,82%)",
+      text:"hsl("+hue+",55%,26%)"
+    };
+  }
+
+  function makeLeafEl(item, animate){
+    var c = leafColors(item.hue);
+    var div = document.createElement("div");
+    div.className = "leaf";
+    div.style.background = "linear-gradient(135deg,"+c.bg+","+c.bg2+")";
+    div.style.color = c.text;
+    if(!animate){ div.style.animation = "none"; }
+    var msg = document.createElement("div");
+    msg.className = "msg";
+    msg.textContent = textFor(item);
+    var date = document.createElement("div");
+    date.className = "date";
+    date.textContent = item.dateLabel;
+    div.appendChild(msg);
+    div.appendChild(date);
+    return div;
+  }
+
+  function renderBouquet(){
+    bouquetEl.innerHTML = "";
+    // newest first
+    for(var i=state.collected.length-1;i>=0;i--){
+      bouquetEl.appendChild(makeLeafEl(state.collected[i], false));
+    }
+    updateCount();
+    translateBtn.hidden = state.collected.length === 0;
+  }
+
+  translateBtn.addEventListener("click", function(){
+    showEnglish = !showEnglish;
+    translateBtn.textContent = showEnglish ? "Vis på norsk" : "Vis på engelsk";
+    renderBouquet();
+  });
+
+  renderBouquet();
+
+  // --- lock state ---
+  var flowerG = document.getElementById("flower");
+  var hintEl = document.getElementById("hint");
+
+  function isLockedToday(){ return state.lastPull === todayKey(); }
+
+  function refreshHint(){
+    if(isLockedToday()){
+      flowerG.classList.add("locked");
+      hintEl.classList.add("soft");
+      hintEl.textContent = "Dagens blad er plukket, kom tilbake i morgen 🌻";
+    }else{
+      flowerG.classList.remove("locked");
+      hintEl.classList.remove("soft");
+      hintEl.textContent = "Tapp solsikka 🌻";
+    }
+  }
+  refreshHint();
+
+  // --- falling leaf animation ---
+  var stage = document.querySelector(".stage");
+  function flutterLeaf(hue, done){
+    var c = leafColors(hue);
+    var leaf = document.createElement("div");
+    leaf.className = "falling";
+    leaf.style.borderRadius = "0 100% 0 100%/100% 0 100% 0";
+    leaf.style.background = "linear-gradient(135deg,"+c.bg+","+c.bg2+")";
+    leaf.style.boxShadow = "0 6px 16px rgba(120,90,30,.2)";
+    var dx = (Math.random()*120 - 60).toFixed(0) + "px";
+    var rot = (Math.random()*240 - 120).toFixed(0) + "deg";
+    leaf.style.setProperty("--dx", "calc(-50% + "+dx+")");
+    leaf.style.setProperty("--rot", rot);
+    leaf.style.animation = "fall 1.5s cubic-bezier(.3,.1,.4,1) forwards";
+    stage.appendChild(leaf);
+    setTimeout(function(){
+      if(leaf.parentNode){ leaf.parentNode.removeChild(leaf); }
+      done();
+    }, 1450);
+  }
+
+  // --- the daily pull ---
+  function pullLeaf(){
+    if(isLockedToday()){
+      // gentle nudge
+      hintEl.classList.add("soft");
+      hintEl.textContent = "Bare ett blad om dagen, vi sees i morgen 🌻";
+      return;
+    }
+    var idx = pickMessage();
+    var hue = HUES[state.collected.length % HUES.length];
+    var item = { msg: MESSAGES[idx], hue: hue, dateLabel: prettyDate() };
+
+    // little shake on the leaves
+    var l = document.getElementById("stemLeafL");
+    l.style.transition="transform .4s"; l.style.transform="rotate(-12deg)";
+    setTimeout(function(){ l.style.transform=""; }, 420);
+
+    flutterLeaf(hue, function(){
+      state.collected.push(item);
+      state.lastPull = todayKey();
+      save(state);
+      var el = makeLeafEl(item, true);
+      bouquetEl.insertBefore(el, bouquetEl.firstChild);
+      updateCount();
+      translateBtn.hidden = false;
+      refreshHint();
+      el.scrollIntoView({behavior:"smooth", block:"nearest"});
+    });
+  }
+
+  flowerG.addEventListener("click", pullLeaf);
+  flowerG.addEventListener("keydown", function(e){ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); pullLeaf(); } });
+  flowerG.setAttribute("tabindex","0");
+  flowerG.setAttribute("role","button");
+  flowerG.setAttribute("aria-label","Plukk dagens blad");
+})();
+</script>
+</body>
+</html>
