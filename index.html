@@ -102,7 +102,30 @@
   }
   @keyframes pop{0%{transform:scale(.4) rotate(-8deg);opacity:0}100%{transform:scale(1) rotate(0);opacity:1}}
   .leaf .msg{font-size:.95rem;line-height:1.4;font-weight:600;position:relative;z-index:1;}
-  .leaf .date{font-size:.7rem;opacity:.7;margin-top:8px;position:relative;z-index:1;font-weight:500;}
+  .leaf .foot{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:10px;position:relative;z-index:1;}
+  .leaf .date{font-size:.7rem;opacity:.7;font-weight:500;}
+  .share-btn{
+    appearance:none;-webkit-appearance:none;border:none;
+    background:rgba(255,255,255,.5);color:inherit;font:inherit;
+    font-size:.74rem;font-weight:700;
+    display:inline-flex;align-items:center;gap:5px;
+    padding:7px 12px;border-radius:999px;cursor:pointer;
+    min-height:32px;transition:background .15s,transform .1s;
+    touch-action:manipulation;
+  }
+  .share-btn:hover{background:rgba(255,255,255,.85);}
+  .share-btn:active{transform:scale(.93);}
+  .share-btn svg{width:13px;height:13px;}
+
+  .toast{
+    position:fixed;left:50%;bottom:calc(26px + env(safe-area-inset-bottom));
+    transform:translateX(-50%) translateY(18px);
+    background:rgba(58,51,38,.93);color:#fff7e0;
+    padding:11px 18px;border-radius:999px;font-size:.85rem;font-weight:600;
+    opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;
+    z-index:50;max-width:84vw;text-align:center;
+  }
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
 
   footer{margin-top:38px;font-size:.74rem;color:#bbac8b;}
 </style>
@@ -157,6 +180,7 @@
   </div>
 
   <footer>Laget med varme 🌻</footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
 (function(){
@@ -356,6 +380,32 @@
       : (n + " blad i buketten");
   }
 
+  // brief confirmation message at the bottom of the screen
+  var toastEl = document.getElementById("toast");
+  var toastTimer = null;
+  function toast(msg){
+    toastEl.textContent = msg;
+    toastEl.classList.add("show");
+    if(toastTimer){ clearTimeout(toastTimer); }
+    toastTimer = setTimeout(function(){ toastEl.classList.remove("show"); }, 2800);
+  }
+
+  // share a leaf's message (native share sheet on mobile -> Snapchat etc.)
+  function shareLeaf(item){
+    var text = textFor(item) + "\n\n🌻";
+    if(navigator.share){
+      navigator.share({ text: text }).catch(function(){ /* user cancelled */ });
+    }else if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){
+        toast(showEnglish ? "Copied, paste it into Snapchat 🌻" : "Kopiert, lim inn i Snapchat 🌻");
+      }).catch(function(){
+        toast(showEnglish ? "Couldn't copy here" : "Fikk ikke kopiert her");
+      });
+    }else{
+      toast(showEnglish ? "Sharing isn't supported here" : "Deling støttes ikke her");
+    }
+  }
+
   function leafColors(hue){
     return {
       bg: "hsl("+hue+",78%,90%)",
@@ -374,11 +424,26 @@
     var msg = document.createElement("div");
     msg.className = "msg";
     msg.textContent = textFor(item);
+
+    var foot = document.createElement("div");
+    foot.className = "foot";
     var date = document.createElement("div");
     date.className = "date";
     date.textContent = item.dateLabel;
+    var share = document.createElement("button");
+    share.className = "share-btn";
+    share.type = "button";
+    share.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/></svg>';
+    var label = document.createElement("span");
+    label.textContent = showEnglish ? "Share" : "Del";
+    share.appendChild(label);
+    share.setAttribute("aria-label", showEnglish ? "Share this message" : "Del denne hilsenen");
+    share.addEventListener("click", function(){ shareLeaf(item); });
+
+    foot.appendChild(date);
+    foot.appendChild(share);
     div.appendChild(msg);
-    div.appendChild(date);
+    div.appendChild(foot);
     return div;
   }
 
