@@ -186,6 +186,27 @@
 (function(){
   "use strict";
 
+  // ===== Optional analytics (GoatCounter) =====
+  // 1. Sign up free at https://www.goatcounter.com and pick a code, e.g. "solsikken".
+  // 2. Paste that code below. Leave "" to keep analytics OFF entirely.
+  var GOATCOUNTER_CODE = "solsikken";  // -> https://solsikken.goatcounter.com
+
+  function gcLoad(){
+    if(!GOATCOUNTER_CODE){ return; }
+    var s = document.createElement("script");
+    s.async = true;
+    s.src = "//gc.zgo.at/count.js";
+    s.setAttribute("data-goatcounter", "https://" + GOATCOUNTER_CODE + ".goatcounter.com/count");
+    document.head.appendChild(s);
+  }
+  function gcEvent(path, title){
+    if(!GOATCOUNTER_CODE){ return; }
+    if(window.goatcounter && window.goatcounter.count){
+      window.goatcounter.count({ path: path, title: title, event: true });
+    }
+  }
+  gcLoad();
+
   // --- Optimistic Norwegian lines about friendship & colour ---
   var MESSAGES = [
     "Noen vennskap er fargen himmelen får rett før den overrasker deg.",
@@ -197,7 +218,6 @@
     "Du er noens favorittfarge i en verden full av valg.",
     "Latter mellom venner er den varmeste gulfargen som finnes.",
     "Selv den minste hilsen kan farge en hel dag.",
-    "Gode venner er som regnbuer, de dukker opp etter regnet.",
     "Du trenger ikke være sola for noen; iblant holder det å være den lille gule blomsten som snur seg mot den.",
     "Det finnes mennesker som gjør hjertet ditt litt mer fargerikt bare ved å være til.",
     "Vennskap er å dele paletten sin med hverandre.",
@@ -241,7 +261,6 @@
     "You are someone's favourite colour in a world full of choices.",
     "Laughter between friends is the warmest shade of yellow there is.",
     "Even the smallest hello can colour a whole day.",
-    "Good friends are like rainbows, they appear after the rain.",
     "You don't have to be the sun for anyone; sometimes it's enough to be the little yellow flower that turns toward it.",
     "There are people who make your heart a little more colourful simply by existing.",
     "Friendship is sharing your palette with one another.",
@@ -392,6 +411,7 @@
 
   // share a leaf's message (native share sheet on mobile -> Snapchat etc.)
   function shareLeaf(item){
+    gcEvent("shared-message", "Shared a message");
     var text = textFor(item) + "\n\n🌻";
     if(navigator.share){
       navigator.share({ text: text }).catch(function(){ /* user cancelled */ });
@@ -526,6 +546,7 @@
       state.collected.push(item);
       state.lastPull = todayKey();
       save(state);
+      gcEvent("leaf-pulled", "Pulled a leaf");
       var el = makeLeafEl(item, true);
       bouquetEl.insertBefore(el, bouquetEl.firstChild);
       updateCount();
